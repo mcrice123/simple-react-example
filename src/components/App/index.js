@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import UserInput from '../common/UserInput';
+
 export default class App extends Component {
   constructor() {
   	super();
@@ -21,6 +23,10 @@ export default class App extends Component {
       	<h3>Current count: {this.state.count}</h3>
 
       	<button onClick={this.onClickAddOne.bind(this)}>Add One</button>
+
+
+        <UserInput />
+
       </div>
     );
   }
