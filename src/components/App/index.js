@@ -25,7 +25,7 @@ export default class App extends Component {
       	<button onClick={this.onClickAddOne.bind(this)}>Add One</button>
 
 
-        <UserInput />
+        <UserInput value={this.state.value} onChange={(e) => console.log(e.target.value)} />
 
       </div>
     );
