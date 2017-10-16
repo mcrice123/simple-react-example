@@ -20,12 +20,17 @@ export default class App extends Component {
       <div>
       	<h1>My awesome app</h1>
 
-      	<h3>Current count: {this.state.count}</h3>
-
-      	<button onClick={this.onClickAddOne.bind(this)}>Add One</button>
+      	<button onClick={this.onClickAddOne.bind(this)} style={{marginBottom: '10px'}}>Add One</button>
 
 
-        <UserInput value={this.state.value} onChange={(e) => console.log(e.target.value)} />
+        <UserInput placeholder="Input Box 1" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value})} style={{display: 'block'}} />
+
+
+        <h1 style={{marginTop: '200px'}}>What's in the state?</h1>
+        <h2>Current Count: <span style={{color: 'red'}}>{this.state.count}</span></h2>
+        <h2>Input Box 1: <span style={{color: 'red'}}>{this.state.value}</span></h2>
+
+
 
       </div>
     );
