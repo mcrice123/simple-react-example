@@ -6,7 +6,29 @@ export default class App extends Component {
   constructor() {
   	super();
 
-  	this.state = { count: 0 };
+  	this.state = { 
+      count: 0,
+      date: new Date() 
+    };
+
+    this.tick = this.tick.bind(this);
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
   }
 
   onClickAddOne() {
@@ -29,7 +51,7 @@ export default class App extends Component {
         <h1 style={{marginTop: '200px'}}>What's in the state?</h1>
         <h2>Current Count: <span style={{color: 'red'}}>{this.state.count}</span></h2>
         <h2>Input Box 1: <span style={{color: 'red'}}>{this.state.value}</span></h2>
-
+        <h2>The time: <span style={{color: 'red'}}>{this.state.date.toLocaleTimeString()}</span></h2>
 
 
       </div>
